@@ -29,19 +29,20 @@
     <parent>
         <groupId>org.jenkins-ci.plugins</groupId>
         <artifactId>plugin</artifactId>
-        <version>3.50</version>
+        <version>4.19</version>
     </parent>
 
     <artifactId>publish-over-ftp</artifactId>
     <packaging>hpi</packaging>
     <name>Publish Over FTP</name>
-    <version>1.16-SNAPSHOT</version>
+    <version>1.18-SNAPSHOT</version>
     <description>Send build artifacts over FTP</description>
-    <url>http://wiki.jenkins-ci.org/display/JENKINS/Publish+Over+FTP+Plugin</url>
+    <url>https://github.com/jenkinsci/publish-over-ftp-plugin</url>
 
     <properties>
         <findbugs.failOnError>false</findbugs.failOnError>
-        <jenkins.version>2.60.3</jenkins.version>
+        <spotbugs.skip>true</spotbugs.skip>
+        <jenkins.version>2.289.1</jenkins.version>
         <java.level>8</java.level>
     </properties>
 
@@ -65,6 +66,18 @@
         </developer>
     </developers>
 
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.jenkins.tools.bom</groupId>
+                <artifactId>bom-2.289.x</artifactId>
+                <version>1148.v7261f385f859</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
     <dependencies>
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
@@ -74,17 +87,15 @@
         <dependency>
             <groupId>commons-net</groupId>
             <artifactId>commons-net</artifactId>
-            <version>3.6</version>
+            <version>3.8.0</version>
         </dependency>
         <dependency>
             <groupId>org.jenkins-ci.plugins</groupId>
             <artifactId>structs</artifactId>
-            <version>1.2</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.12</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -96,7 +107,6 @@
         <dependency>
             <groupId>org.mockito</groupId>
             <artifactId>mockito-core</artifactId>
-            <version>1.10.19</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -108,13 +118,13 @@
         <dependency>
             <groupId>org.easymock</groupId>
             <artifactId>easymock</artifactId>
-            <version>2.5.2</version>
+            <version>5.1.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
             <groupId>org.easymock</groupId>
             <artifactId>easymockclassextension</artifactId>
-            <version>2.5.2</version>
+            <version>3.2</version>
             <scope>test</scope>
         </dependency>
     </dependencies>
